@@ -48,7 +48,7 @@ st.subheader("La distribución de la muestra se realizó dentro de cada entidad 
 
 st.subheader("")
 
-st.subheader("1) Selección de UPM")
+st.subheader("1) Selección de UPM (unidades primarias de muestreo")
 st.subheader("2) Selección de vivienda")
 st.subheader("3) Persona residente de 18 años y más")
 
