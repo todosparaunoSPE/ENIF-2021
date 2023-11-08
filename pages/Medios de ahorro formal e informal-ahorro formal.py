@@ -1,0 +1,59 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Oct 30 15:56:24 2023
+
+@author: jperezr
+"""
+
+import altair as alt
+import pandas as pd
+import streamlit as st
+
+df = pd.DataFrame([['Ahorro y cheques', 13, '2018'], 
+                   ['Ahorro y cheques', 12, '2021'], 
+                   ['Nómina', 7, '2018'], 
+                   ['Nómina', 10, '2021'], 
+                   ['Apoyo de gobierno y otras', 2, '2018'], 
+                   ['Apoyo de gobierno y otras', 2, '2021'],
+                   ['Inversión y depósitos a plazos', 1, '2018'], 
+                   ['Inversión y depósitos a plazos', 2, '2021'],
+                   ['Monedero electrónico', 0, '2018'], 
+                   ['Monedero electrónico', 1, '2021']],
+                   
+                   columns=['Año', 'Porcentaje', 'Serie'])
+
+chart = alt.Chart(df).mark_bar().encode(
+   x=alt.X('Año', axis=alt.Axis(labelAngle=0)),
+   xOffset='Serie',
+   y=alt.Y('Porcentaje', axis=alt.Axis(grid=False)),
+   #color='Serie'
+   
+   ).configure_mark(
+    #opacity=0.2,
+    color='rgb(19,50,43)'
+   
+   
+   
+   
+).configure_view(
+    stroke=None,
+)
+
+st.title("Medios de ahorro formal e informal (2018-2021) (porcentaje de la población adulta)")
+ 
+st.subheader("")    
+st.markdown('<div style="text-align: justify;">¿Para tú conocimiento… la población que más ahorra de manera formal lo hace a través de: ahorro-cheque y vía nómina?</div>', unsafe_allow_html=True)
+st.subheader("")    
+st.markdown('<div style="text-align: justify;">A) Ahorro formal</div>', unsafe_allow_html=True)    
+    
+
+st.subheader("")    
+st.subheader("")    
+st.subheader("")    
+
+chart
+
+st.subheader("")    
+st.subheader("")    
+
+st.caption("Nota: Población adulta de 70 años y menos. En panel A, Las otras incluidas junto a apoyos de gobierno incluyen cuentas de pensiones y otros tipos de cuentas. Fuente: Cálculos propios con datos de la ENIF.")
